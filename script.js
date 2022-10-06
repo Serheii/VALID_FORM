@@ -23,5 +23,7 @@ var formDef2=
 ];
 
 function formСreation(params) {
-  
+  formDef1.forEach(a=>{
+
+  });
 }
