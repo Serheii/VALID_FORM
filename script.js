@@ -22,8 +22,30 @@ var formDef2=
   {caption:'Зарегистрироваться',kind:'submit'},
 ];
 
-function formСreation(params) {
-  formDef1.forEach(a=>{
+function formСreation(formDef, formElem) {
+  formDef.forEach( elemDef =>{
+    switch ( elemDef.kind ) {
 
+      case "longtext": {
+        let labelElem=document.createElement("label");
+        labelElem.innerHTML=elemDef.label;
+        let inputElem=document.createElement("input");
+        inputElem.type="text";
+        inputElem.name=elemDef.name;
+        break;
+      }
+
+      case "longtext": {
+        let labelElem=document.createElement("label");
+        labelElem.innerHTML=elemDef.label;
+        let inputElem=document.createElement("input");
+        inputElem.type="number";
+        inputElem.name=elemDef.name;
+        break;
+      }
+    }
   });
-}
+};
+
+formСreation(formDef1,document.forms.form1);
+formСreation(formDef2,document.forms.form2);
