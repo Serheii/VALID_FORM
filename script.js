@@ -21,3 +21,7 @@ var formDef2=
   {label:'Возраст:',kind:'number',name:'age'},
   {caption:'Зарегистрироваться',kind:'submit'},
 ];
+
+function formСreation(params) {
+  
+}
