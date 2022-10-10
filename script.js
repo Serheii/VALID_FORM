@@ -1,3 +1,5 @@
+"use strict";
+
 var formDef1=
 [
   {label:'Название сайта:',kind:'longtext',name:'sitename'},
@@ -24,28 +26,88 @@ var formDef2=
 
 function formСreation(formDef, formElem) {
   formDef.forEach( elemDef =>{
+    let br = document.createElement("br");
+    formElem.appendChild(br);
+
+    if ( "label" in elemDef ) {
+      let labelElem=document.createElement("label");
+      labelElem.innerHTML=elemDef.label;
+      formElem.appendChild(labelElem);
+    };
+
     switch ( elemDef.kind ) {
 
       case "longtext": {
-        let labelElem=document.createElement("label");
-        labelElem.innerHTML=elemDef.label;
         let inputElem=document.createElement("input");
         inputElem.type="text";
         inputElem.name=elemDef.name;
+        formElem.appendChild(inputElem);
         break;
       }
-
-      case "longtext": {
-        let labelElem=document.createElement("label");
-        labelElem.innerHTML=elemDef.label;
+    case "number": {
         let inputElem=document.createElement("input");
         inputElem.type="number";
         inputElem.name=elemDef.name;
-        break;
+        formElem.appendChild(inputElem);
+        break;        
+      }
+    case "shorttext": {
+        let inputElem=document.createElement("input");
+        inputElem.type="text";
+        inputElem.name=elemDef.name;
+        formElem.appendChild(inputElem);
+        break;        
+      }
+    case "combo": {
+        let selectElem=document.createElement("select");
+        formElem.appendChild(selectElem);
+        let v = elemDef.variants;
+        v.forEach(a=>{
+        let optionElem=document.createElement("option");
+        optionElem.value=a.value;
+        optionElem.innerHTML=a.text;
+        selectElem.appendChild(optionElem);
+        let t = document.createElement("text");
+        optionElem.appendChild(t);
+        })
+        break;        
+      }
+    case "radio": {
+        elemDef.variants.forEach(a=>{
+        let radioElem=document.createElement("input");
+        radioElem.type="radio";
+        radioElem.name=a.name;
+        radioElem.value=a.value;
+        radioElem.innerHTML=a.text;
+        formElem.appendChild(radioElem);
+        })
+        break;        
+      }
+      case "check": {
+        let inputElem=document.createElement("input");
+        inputElem.type="checkbox";
+        inputElem.name=elemDef.name;
+        formElem.appendChild(inputElem);
+        break;        
+      }
+      case "memo": {        
+        let br = document.createElement("br");
+        formElem.appendChild(br);
+        let inputElem=document.createElement("textarea");
+        inputElem.name=elemDef.name;
+        formElem.appendChild(inputElem);
+        break;        
+      }
+      case "submit": {
+        let inputElem=document.createElement("input");
+        inputElem.type="submit";
+        inputElem.value=elemDef.caption;
+        formElem.appendChild(inputElem);
+        break;        
       }
     }
   });
 };
 
-formСreation(formDef1,document.forms.form1);
-formСreation(formDef2,document.forms.form2);
+formСreation( formDef1, document.forms.form1 );
+formСreation( formDef2, document.forms.form2 );
