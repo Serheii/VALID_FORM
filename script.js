@@ -26,8 +26,6 @@ var formDef2=
 
 function formСreation(formDef, formElem) {
   formDef.forEach( elemDef =>{
-    let br = document.createElement("br");
-    formElem.appendChild(br);
 
     if ( "label" in elemDef ) {
       let labelElem=document.createElement("label");
@@ -76,10 +74,12 @@ function formСreation(formDef, formElem) {
         elemDef.variants.forEach(a=>{
         let radioElem=document.createElement("input");
         radioElem.type="radio";
-        radioElem.name=a.name;
+        radioElem.name=elemDef.name;
         radioElem.value=a.value;
-        radioElem.innerHTML=a.text;
         formElem.appendChild(radioElem);
+        let radioText = document.createTextNode(a.text);
+        console.log(a.text);
+        formElem.appendChild(radioText);
         })
         break;        
       }
@@ -106,6 +106,8 @@ function formСreation(formDef, formElem) {
         break;        
       }
     }
+    let br = document.createElement("br");
+    formElem.appendChild(br);
   });
 };
 
