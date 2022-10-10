@@ -78,7 +78,6 @@ function formСreation(formDef, formElem) {
         radioElem.value=a.value;
         formElem.appendChild(radioElem);
         let radioText = document.createTextNode(a.text);
-        console.log(a.text);
         formElem.appendChild(radioText);
         })
         break;        
