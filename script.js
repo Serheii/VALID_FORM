@@ -2,8 +2,10 @@
 
 var formDef1=
 [
+  {label:'Разработчики:',kind:'longtext',name:'sitenamerazrab'},
   {label:'Название сайта:',kind:'longtext',name:'sitename'},
   {label:'URL сайта:',kind:'longtext',name:'siteurl'},
+  {label:'Дата запуска сайта:',kind:'number',name:'visitors'},
   {label:'Посетителей в сутки:',kind:'number',name:'visitors'},
   {label:'E-mail для связи:',kind:'shorttext',name:'email'},
   {label:'Рубрика каталога:',kind:'combo',name:'division',
@@ -13,15 +15,6 @@ var formDef1=
   {label:'Разрешить отзывы:',kind:'check',name:'votes'},
   {label:'Описание сайта:',kind:'memo',name:'description'},
   {caption:'Опубликовать',kind:'submit'},
-];
-
-var formDef2=
-[
-  {label:'Фамилия:',kind:'longtext',name:'lastname'},
-  {label:'Имя:',kind:'longtext',name:'firstname'},
-  {label:'Отчество:',kind:'longtext',name:'secondname'},
-  {label:'Возраст:',kind:'number',name:'age'},
-  {caption:'Зарегистрироваться',kind:'submit'},
 ];
 
 function formСreation(formDef, formElem) {
@@ -111,4 +104,3 @@ function formСreation(formDef, formElem) {
 };
 
 formСreation( formDef1, document.forms.form1 );
-formСreation( formDef2, document.forms.form2 );
