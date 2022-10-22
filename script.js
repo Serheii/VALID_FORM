@@ -66,7 +66,7 @@ function formСreation(formDef, formElem) {
       case "combo": {
         let selectElem=document.createElement("select");
         selectElem.name=elemDef.name;
-        selectElem.setAttribute('onblur','validRubrik(false)');
+        selectElem.setAttribute('onchange','validRubrik(false)');
         formElem.appendChild(selectElem);
         let v = elemDef.variants;
         let optionElem=document.createElement("option");
