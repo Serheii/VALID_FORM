@@ -267,7 +267,6 @@ function validRadio(focusOnError) {
   let errCount=0;
   let razrElem=formElem.elements.payment;
   let razrValue=razrElem.value;
-  // let razrErrorElem=razrElem.nextSibling;//вот не шмогла я этим способом добраться, какие только варианты не выбирал
   let razrErrorElem=document.getElementById('q');
   if (razrValue=='') {
     razrErrorElem.innerHTML="Выберите размещение";
